@@ -1,0 +1,5 @@
+Se (usando a base hexadecimal): 
+◦ x for declarado como char - x+1 ocupa 4093, x+2 ocupa 4094, x+3 ocupa 4095;
+◦ x for declarado como int - x+1 ocupa 4094, x+2 ocupa 4096, x+3 ocupa 4098;
+◦ x for declarado como float - x+1 ocupa 4096, x+2 ocupa 409A, x+3 ocupa 409E;
+◦ x for declarado como double - x+1 ocupa 409A, x+2 ocupa 40A2, x+3 ocupa 40AA;
