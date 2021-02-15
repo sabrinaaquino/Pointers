@@ -1,0 +1,6 @@
+São válidas as expressões:
+
+p = mat + 1; // VÁLIDA - faz o ponteiro apontar para o segundo valor guardando, avançando 4 bytes de memória.
+p = mat++; // INVÁLIDA - tenta incrementar valor ao ponteiro de mat e não ao seu conteúdo ou posição;
+p = ++mat; // INVÁLIDA - tenta incrementar valor ao ponteiro de mat e não ao seu conteúdo ou posição;
+x = (*mat)++; // VÁLIDA - incrementa o valor 1 ao conteúdo de mat naquela posição.
