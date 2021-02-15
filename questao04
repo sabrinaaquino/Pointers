@@ -1,0 +1,17 @@
+O programa deverá mostrar as seguintes respostas:
+
+20   /*(a)*/
+29.0 /*(b)*/
+P    /*(c)*/
+e    /*(d)*/
+P    /*(e)*/
+e    /*(f)*/
+t    /*(g)*/
+31   /*(h)*/
+45   /*(i)*/
+27   /*(j)*/
+31   /*(l)*/
+45   /*(m)*/
+27   /*(n)*/
+
+// ao compilar, é obtido as respostas esperadas.
