@@ -1,0 +1,11 @@
+Determinando o valor das dadas expressões:
+
+(1) p == &i; 
+(2) *p - *q;
+(3) **&p;
+(4) 3 - *p/(*q) + 7;
+ 
+(1) true;
+(2) -2;
+(3) 3;
+(4) 10; // isso ocorre pois a divisão está sendo feita com números inteiros, assim, o que seria um resultado decimal, é arredondado para baixo como inteiro
