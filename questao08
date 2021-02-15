@@ -1,0 +1,2 @@
+O primeiro programa imprime o conteúdo do vetor inicializado, em ordem da menor posição para a maior, sendo assim: 4 9 13.
+O segundo programa imprime os locais da memória onde esses conteúdos estão guardados, em ordem da menor posição para a maior.
