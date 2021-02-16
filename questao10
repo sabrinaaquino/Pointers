@@ -1,0 +1,51 @@
+Em C, uma variável do tipo char ocupa 1 byte e do tipo int ocupa 4 bytes. 
+Fazendo um programa de teste com esses dois tipos e observando os pulos de memória, temos o seguinte:
+
+1) Usando o tipo char:
+
+#include <stdio.h>
+
+int main(){
+    char x[4], *p;
+    p = x;
+    printf("%x\n",p);
+    p = x+1;
+    printf("%x\n",p);
+    p = x+2;
+    printf("%x\n",p);
+    p = x+3;
+    printf("%x\n",p);
+}
+
+/*Temos como saída: 
+efbff40c
+efbff40d
+efbff40e
+efbff40f
+*/
+
+2) Usando o tipo int:
+
+#include <stdio.h>
+
+int main(){
+    int x[4], *p;
+    p = x;
+    printf("%x\n",p);
+    p = x+1;
+    printf("%x\n",p);
+    p = x+2;
+    printf("%x\n",p);
+    p = x+3;
+    printf("%x\n",p);
+}
+
+/*Temos como saída:
+efbff3f0
+efbff3f4
+efbff3f8
+efbff3fc
+*/
+
+
+Sendo assim, os saltos na memória são realizados do acordo com o esperado para cada tipo declarado.
