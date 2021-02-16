@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void * a, const void * b){
+    return (*(int*)a, *(int*)b);
+}
+
+int main(){
+    float n;
+    int i;
+    float *x;
+    printf("TAMANHO DO VETOR: ");
+    scanf("%f", &n);                         // RECEBE O TAMANHO PELO USUÁRIO
+    x = malloc(n*sizeof(float));
+    printf("VETOR:\n");
+    for(i=0; i<n; i++){                      // PREENCHE O VETOR COM NÚMEROS GERADOS POR UMA FUNÇÃO QUALQUER
+        *(x+i)= (n-i)/3;
+        printf("%.1f ", x[i]);
+    }
+    printf("\n");
+    qsort(x, n, sizeof(float), compare);     // FUNÇÃO QUE COLOCA EM ORDEM CRESCENTE
+    printf("VETOR EM ORDEM CRESCENTE:\n");
+    for(i=0; i<n; i++){                      // IMPRIME OS VALORES NA TELA
+        printf("%.1f ", x[i]);
+    }
+    free(x);
+
+}
+
+
