@@ -1,30 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int compare(const void * a, const void * b){
-    return (*(int*)a, *(int*)b);
+void crescente(int t, float * a){
+    int j = 0, k = 0;
+    float aux;
+    while (k!=t){
+        while (j<t-1){
+            if(a[j]>a[j+1]){
+                aux = a[j+1];
+                a[j+1] = a[j];
+                a[j] = aux;
+                j++;
+            }
+            else{
+                j++;
+            }
+        }
+        j=0;
+        k++;
+    }
+    for(k=0; k<t; k++){
+        printf("%.1f ", a[k]);
+    }
 }
 
 int main(){
-    float n;
-    int i;
+    int i, n;
     float *x;
     printf("TAMANHO DO VETOR: ");
-    scanf("%f", &n);                         // RECEBE O TAMANHO PELO USUÁRIO
+    scanf("%d", &n);                        // DECLARANDO O TAMANHO DO VETOR
     x = malloc(n*sizeof(float));
     printf("VETOR:\n");
-    for(i=0; i<n; i++){                      // PREENCHE O VETOR COM NÚMEROS GERADOS POR UMA FUNÇÃO QUALQUER
-        *(x+i)= (n-i)/3;
-        printf("%.1f ", x[i]);
+    for(i=0; i<n; i++){
+        printf("Digite o valor da posição %d\n", i);
+        scanf("%f", &x[i]);                 // LENDO OS VALORES DO VETOR DENTRO DA FUNÇÃO MAIN
     }
-    printf("\n");
-    qsort(x, n, sizeof(float), compare);     // FUNÇÃO QUE COLOCA EM ORDEM CRESCENTE
-    printf("VETOR EM ORDEM CRESCENTE:\n");
-    for(i=0; i<n; i++){                      // IMPRIME OS VALORES NA TELA
-        printf("%.1f ", x[i]);
-    }
-    free(x);
+    crescente(n, x);                        // FUNÇÃO IMPLEMENTADA APENAS PARA COLOCAR OS VALORES EM ORDEM
+    free(x);                                // LIBERANDO A MEMÓRIA 
 
 }
-
-
