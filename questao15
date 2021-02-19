@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void * a, const void * b){  // FUNÇÃO QUE SERÁ USADA POR OUTRA PARA COMPARAR DOIS VALORES
+    if(*(int*)a == *(int*)b)                  // VALORES IGUAIS
+        return 0;
+    else{
+        if(*(int*)a < *(int*)b)               // A VEM ANTES DE B
+        return -1;
+        else                                  // B VEM ANTES DE A
+        return 1;
+    }
+}
+
+void crescente(int t, float * a, f){
+    int j = 0, k = 0;
+    float aux;
+    while (k!=t){
+        while (j<t-1){
+            if(compare(&a[j],&a[j+1])==1){      // SE B VEM ANTES DE A, FAZ A TROCA
+                aux = a[j+1];
+                a[j+1] = a[j];
+                a[j] = aux;
+                j++;
+            }
+            else{                                // SENAO, NAO FAZ
+                j++;
+            }
+        }
+        j=0;
+        k++;
+    }
+    for(k=0; k<t; k++){                           // IMPRIME O VETOR NA TELA
+        printf("%.1f ", a[k]);
+    }
+}
+
+int main(){
+    int i, n;
+    float *x;
+    printf("TAMANHO DO VETOR: ");
+    scanf("%d", &n);                            // DECLARANDO O TAMANHO DO VETOR
+    x = malloc(n*sizeof(float));
+    int (*f)(float, float) = compare;
+    printf("VETOR:\n");
+    for(i=0; i<n; i++){
+        printf("Digite o valor da posição %d\n", i);
+        scanf("%f", &x[i]);                     // LENDO OS VALORES DO VETOR DENTRO DA FUNÇÃO MAIN
+    }
+    crescente(n, x, f);                        // FUNÇÃO IMPLEMENTADA APENAS PARA COLOCAR OS VALORES EM ORDEM
+    free(x);                                   // LIBERANDO A MEMÓRIA
+
+}
