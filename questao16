@@ -1,0 +1,114 @@
+Para medir os tempos de execução de cada um dos programas, utilizaremos a função clock(), localizada na biblioteca <time.h>; 
+Aplicando a função clock() para medir o tempo de execução para os programas das questões 15 e 14, obtemos os tempos 0.068ms e 0.084ms, respectivamente.
+Com isso, é perceptível que o tipo de programa da questão 15 é mais vantajoso para o processamento da máquina.
+
+A implementação dessa função nos códigos:
+
+
+
+
+//QUESTAO 14
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int compare(const void * a, const void * b){  // FUNÇÃO QUE SERÁ USADA PELO QSORT PARA COMPARAR DOIS VALORES
+    if(*(int*)a == *(int*)b)                // VALORES IGUAIS
+        return 0;
+    else{
+        if(*(int*)a < *(int*)b)             // A VEM ANTES DE B
+        return -1;
+        else                                // B VEM ANTES DE A
+        return 1;
+    }
+}
+
+int main(){
+    clock_t t;
+    int i=0, n;                              // DECLARANDO AS VARIÁVEIS
+    float *x;                                // DECLARANDO O PONTEIRO
+    printf("TAMANHO DO VETOR: ");
+    scanf("%d", &n);                         // RECEBE O TAMANHO PELO USUÁRIO
+    x = malloc(n*sizeof(float));             // ALOCA O BLOCO AUXILIAR E RETORNA O ENDEREÇO PARA O VETOR X
+    int (*f)(float, float) = compare;
+    printf("VETOR:\n");
+    while(i<n){                              // PREENCHE O VETOR
+        scanf("%f ", (x+i));
+        i++;
+    }
+    t = clock();
+    qsort(x, n, sizeof(float), f);          // FUNÇÃO QUE COLOCA EM ORDEM CRESCENTE
+    printf("VETOR EM ORDEM CRESCENTE:\n");
+    for(i=0; i<n; i++){                      // IMPRIME OS VALORES NA TELA, AGORA ORDENADOS DE FORMA CRESCENTE
+        printf("%.1f ", x[i]);
+    }
+    free(x);                                 // LIBERA O BLOCO AUXILIAR
+    t = clock() - t;
+    printf("Tempo de execucao: %lf", ((double)t)/((CLOCKS_PER_SEC/1000)));
+}
+
+
+
+
+
+// QUESTAO 15
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int compare(const void * a, const void * b){  // FUNÇÃO QUE SERÁ USADA PARA COMPARAR DOIS VALORES
+    if(*(int*)a == *(int*)b)                // VALORES IGUAIS
+        return 0;
+    else{
+        if(*(int*)a < *(int*)b)             // A VEM ANTES DE B
+        return -1;
+        else                                // B VEM ANTES DE A
+        return 1;
+    }
+}
+
+void crescente(int t, float * a, f){
+    int j = 0, k = 0;
+    float aux;
+    while (k!=t){
+        while (j<t-1){
+            if(compare(&a[j],&a[j+1])==1){
+                aux = a[j+1];
+                a[j+1] = a[j];
+                a[j] = aux;
+                j++;
+            }
+            else{
+                j++;
+            }
+        }
+        j=0;
+        k++;
+    }
+    for(k=0; k<t; k++){
+        printf("%.1f ", a[k]);
+    }
+}
+
+int main(){
+    clock_t t;
+    int i, n;
+    float *x;
+    printf("TAMANHO DO VETOR: ");
+    scanf("%d", &n);                        // DECLARANDO O TAMANHO DO VETOR
+    x = malloc(n*sizeof(float));
+    int (*f)(float, float) = compare;
+    printf("VETOR:\n");
+    for(i=0; i<n; i++){
+        printf("Digite o valor da posição %d\n", i);
+        scanf("%f", &x[i]);                 // LENDO OS VALORES DO VETOR DENTRO DA FUNÇÃO MAIN
+    }
+    t = clock();
+    crescente(n, x, f);                        // FUNÇÃO IMPLEMENTADA APENAS PARA COLOCAR OS VALORES EM ORDEM
+    free(x);                                // LIBERANDO A MEMÓRIA
+    t = clock() - t;
+    printf("Tempo de execucao: %lf", ((double)t)/((CLOCKS_PER_SEC/1000)));
+}
+
