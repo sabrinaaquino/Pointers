@@ -1,0 +1,5 @@
+Conseguir administrar o uso da memória é uma das grandes vantagens de C e o que torna o seu uso tão vantajoso para o processamento da máquina, porém, 
+se erros desse tipo forem recorrentes a memória da máquina é comprometida e tem o efeito reverso. C é uma linguagem que não possui coletor de lixo próprio,
+contudo você pode adicionar essa propriedade para o seu programa através de bibliotecas como a libGC. O que a biblioteca libGC faz é evitar vazamentos na memória, 
+ou seja, pedaços de memória que foram alocados mas o computador não consegue ter mais acesso porque o ponteiro que apontava para ela foi perdido. Este recurso 
+gera um coletor de lixo que escaneia a memória por blocos que não estào sendo usados e libera aquele pedaço de memória de volta para o processamento da máquina.
