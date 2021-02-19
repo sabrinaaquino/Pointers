@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void add(int * x, int * y, int * z, int n){
+    int k;
+    for(k=0;k<n;k++){
+        z[k]=x[k]+y[k];
+        printf("%d ", z[k]);
+    }
+}
+
+int main(){
+    int i=0, n;
+    int *x, *y, *z;
+    printf("TAMANHO DO VETOR: ");
+    scanf("%d", &n);
+    x = malloc(n*sizeof(int));
+    y = malloc(n*sizeof(int));
+    z = malloc(n*sizeof(int));
+    printf("PREENCHA O VETOR 1:\n");
+    i=0;
+    for(i=0;i<n;i++){
+        scanf("%d ", &x[i]);
+    }
+    printf("PREENCHA O VETOR 2:\n");
+    i=0;
+    for(i=0;i<n;i++){
+        scanf("%d ", &y[i]);
+    }
+    add(x, y, z, n);
+    free(x);
+}
