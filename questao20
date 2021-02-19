@@ -1,0 +1,3 @@
+A implementação do coletor de lixo faz com que o tempo de processamento da máquina seja maior. Isso ocorre porque existe sempre uma função ativa no background 
+que não existe nos programas que a liberação da memória é feita pelo próprio programador, fazendo com que a máquina precise de mais tempo para executar um mesmo 
+programa.
