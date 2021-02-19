@@ -1,0 +1,59 @@
+int main(){
+    int nla, nca, nlb, ncb, nlc, ncc, i=0, j=0;
+    int **a, **b, **c;
+    
+    printf("NÚMERO DE LINHAS DE A: ");
+    scanf("%d", &nla);
+    printf("NÚMERO DE COLUNAS DE A: ");
+    scanf("%d", &nca);
+    nlb=nca;
+    printf("NÚMERO DE COLUNAS DE B: ");
+    scanf("%d", &ncb);
+    nlc=nla;
+    ncc=ncb;
+    a = malloc(nla*sizeof(int*));
+    for(i=0; i<nla; i++){
+        a[i]= malloc(nca*sizeof(int));
+    }
+    b = malloc(nlb*sizeof(int*));
+    for(i=0; i<nlb; i++){
+        b[i]= malloc(ncb*sizeof(int));
+    }
+    c = malloc(nlc*sizeof(int*));
+    for(i=0; i<nlc; i++){
+        c[i]= malloc(ncc*sizeof(int));
+    }
+    
+    printf("PREENCHENDO A MATRIZ A:\n");
+    for(i=0;i<3;i++){
+            for(j=0;j<2;j++){
+            a[i][j]=rand()%10;
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("PREENCHENDO A MATRIZ B:\n");
+    for(i=0;i<2;i++){
+        for(j=0;j<3;j++){
+            b[i][j]=rand()%10;
+            printf("%d ", b[i][j]);
+        }
+        printf("\n");
+    }
+    
+    c = times(a, b, c, 3, 2, 3);
+    
+    for(i=0;i<3;i++){
+        free(a[i]);
+    }
+    free(a);
+    for(i=0;i<2;i++){
+        free(b[i]);
+    }
+    free(b);
+    for(i=0;i<3;i++){
+        free(c[i]);
+    }
+    free(c);
+     
+}
