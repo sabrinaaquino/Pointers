@@ -1,3 +1,3 @@
-# lista-ponteiros
+# Pointers
 
-Lista para a primeira unidade de Programação Avançada
+Learning how to use pointers 
